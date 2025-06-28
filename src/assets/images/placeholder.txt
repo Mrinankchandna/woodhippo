@@ -1,0 +1,10 @@
+This is a placeholder file. You should replace this with actual images for:
+
+1. hero-image.jpg - Hero section background
+2. about-image.jpg - About section image
+3. client1.png through client6.png - Client logos
+4. project1.jpg through project3.jpg - Project images
+5. team1.jpg through team4.jpg - Team member photos
+6. csr.jpg - CSR section image
+
+You can use stock photos or create custom images for these placeholders.

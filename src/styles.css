@@ -1,1 +1,85 @@
-/* You can add global styles to this file, and also import other style files */
+/* Base styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  color: #f0f0f0;
+  line-height: 1.6;
+  background-color: #121212;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #ffd700;
+  color: #121212;
+  border: 1px solid #ffd700;
+}
+
+.btn-primary:hover {
+  background-color: #e6c200;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border: 1px solid #ffd700;
+  color: #ffd700;
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Under construction section */
+.under-construction {
+  margin-top: 2rem;
+  padding: 2rem;
+  text-align: center;
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+.under-construction h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffd700;
+}
+
+.under-construction p {
+  font-size: 1.2rem;
+  color: #cccccc;
+}
+
+.under-construction ul {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.under-construction li {
+  margin: 0.5rem 0;
+  color: #f0f0f0;
+}
+
+.under-construction li:nth-child(1),
+.under-construction li:nth-child(2) {
+  color: #ffd700;
+}
