@@ -1,0 +1,148 @@
+.contact-page {
+  padding: 4rem 0;
+  background-color: #121212;
+  min-height: 80vh;
+}
+
+.page-title {
+  text-align: center;
+  color: #ffd700;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.contact-info h2 {
+  color: #ffd700;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.contact-info h3 {
+  color: #ffd700;
+  margin: 1.5rem 0 1rem;
+  font-size: 1.4rem;
+}
+
+.contact-info p {
+  margin-bottom: 0.5rem;
+  color: #f0f0f0;
+}
+
+.contact-details {
+  margin-top: 2rem;
+}
+
+.contact-form {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form h2 {
+  color: #ffd700;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #f0f0f0;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #222;
+  color: #f0f0f0;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #ffd700;
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+}
+
+.btn-primary {
+  background-color: #ffd700;
+  color: #121212;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #e6c200;
+  transform: translateY(-2px);
+}
+
+.btn-primary:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-success {
+  background-color: rgba(39, 174, 96, 0.2);
+  border: 1px solid rgba(39, 174, 96, 0.3);
+  color: #2ecc71;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.form-error {
+  background-color: rgba(231, 76, 60, 0.2);
+  border: 1px solid rgba(231, 76, 60, 0.3);
+  color: #e74c3c;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.error-text {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .contact-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .contact-info,
+  .contact-form {
+    flex: 1;
+  }
+}

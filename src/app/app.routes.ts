@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home';
+import { HomeComponent } from './pages/home/home.component';
 import { ResizableNavbarComponent } from './components/resizable-navbar/resizable-navbar.component';
 
 export const routes: Routes = [
@@ -19,8 +19,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        loadComponent: () => import('./pages/placeholder/placeholder').then(m => m.PlaceholderComponent),
-        data: { title: 'About Us' }
+        loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent)
       }
     ]
   },
@@ -30,52 +29,37 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        loadComponent: () => import('./pages/placeholder/placeholder').then(m => m.PlaceholderComponent),
-        data: { title: 'Our Services' }
+        loadComponent: () => import('./pages/services/services.component').then(m => m.ServicesComponent)
       }
     ]
   },
   {
-    path: 'sectors',
+    path: 'business',
     component: ResizableNavbarComponent,
     children: [
       {
         path: '',
-        loadComponent: () => import('./pages/placeholder/placeholder').then(m => m.PlaceholderComponent),
-        data: { title: 'Sectors We Serve' }
+        loadComponent: () => import('./pages/business/business.component').then(m => m.BusinessComponent)
       }
     ]
   },
   {
-    path: 'careers',
+    path: 'providers',
     component: ResizableNavbarComponent,
     children: [
       {
         path: '',
-        loadComponent: () => import('./pages/placeholder/placeholder').then(m => m.PlaceholderComponent),
-        data: { title: 'Careers' }
+        loadComponent: () => import('./pages/providers/providers.component').then(m => m.ProvidersComponent)
       }
     ]
   },
   {
-    path: 'csr',
+    path: 'how-it-works',
     component: ResizableNavbarComponent,
     children: [
       {
         path: '',
-        loadComponent: () => import('./pages/placeholder/placeholder').then(m => m.PlaceholderComponent),
-        data: { title: 'Corporate Social Responsibility' }
-      }
-    ]
-  },
-  {
-    path: 'media',
-    component: ResizableNavbarComponent,
-    children: [
-      {
-        path: '',
-        loadComponent: () => import('./pages/placeholder/placeholder').then(m => m.PlaceholderComponent),
-        data: { title: 'Media' }
+        loadComponent: () => import('./pages/how-it-works/how-it-works.component').then(m => m.HowItWorksComponent)
       }
     ]
   },
@@ -85,8 +69,7 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        loadComponent: () => import('./pages/placeholder/placeholder').then(m => m.PlaceholderComponent),
-        data: { title: 'Contact Us' }
+        loadComponent: () => import('./pages/contact-us/contact-us.component').then(m => m.ContactUsComponent)
       }
     ]
   },

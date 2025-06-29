@@ -1,0 +1,30 @@
+<div class="carousel-wrapper">
+  <div class="carousel-header">
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-subtitle">Specialized workforce and maintenance services in Saharanpur</p>
+  </div>
+  
+  <div class="carousel-container" #carouselContainer>
+    <div *ngFor="let service of services; let i = index" class="service-card" [class.active]="activeCardIndex === i">
+      <div class="card-content">
+        <div class="card-category">{{ service.category }}</div>
+        <h3 class="card-title">{{ service.title }}</h3>
+        <p class="card-description">{{ service.description }}</p>
+      </div>
+      <div class="card-image" [style.backgroundImage]="'url(' + service.imageUrl + ')'"></div>
+    </div>
+  </div>
+  
+  <div class="carousel-indicators">
+    <button 
+      *ngFor="let service of services; let i = index" 
+      class="indicator-dot" 
+      [class.active]="activeCardIndex === i"
+      (click)="scrollToCard(i)">
+    </button>
+  </div>
+  
+  <div class="view-all-services">
+    <a routerLink="/services" class="btn btn-primary">View All Services</a>
+  </div>
+</div>

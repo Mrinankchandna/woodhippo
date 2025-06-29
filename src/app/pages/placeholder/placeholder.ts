@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-placeholder',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [],
   templateUrl: './placeholder.html',
   styleUrls: ['./placeholder.css']
 })

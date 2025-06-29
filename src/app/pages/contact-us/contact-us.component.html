@@ -1,0 +1,91 @@
+<div class="contact-page">
+  <div class="container">
+    <h1 class="page-title">Contact Us</h1>
+
+    <div class="contact-container">
+      <!-- Address Section -->
+      <div class="contact-info">
+        <h2>Our Office</h2>
+        <address>
+          <p><strong>WOODHIPPO</strong></p>
+          <p>1/5800, New Makhan Colony</p>
+          <p>Saharanpur, Uttar Pradesh - 247001</p>
+          <p>India</p>
+        </address>
+
+        <div class="contact-details">
+          <h3>Get in Touch</h3>
+          <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
+          <p><strong>Email:</strong> info&#64;woodhippo.com</p>
+          <p><strong>Hours:</strong> Monday-Saturday, 9:00 AM - 6:00 PM</p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+
+        <div *ngIf="formSubmitted" class="form-success">
+          <p>Thank you for your message! We'll get back to you soon.</p>
+        </div>
+
+        <div *ngIf="formError" class="form-error">
+          <p>Please fill in all required fields.</p>
+        </div>
+
+        <form *ngIf="!formSubmitted" (ngSubmit)="submitForm()" #contactFormElement="ngForm">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              [(ngModel)]="contactForm.name"
+              required
+              placeholder="Your name"
+              #nameInput="ngModel"
+            >
+            <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="error-text">
+              Name is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              [(ngModel)]="contactForm.email"
+              required
+              email
+              placeholder="Your email address"
+              #emailInput="ngModel"
+            >
+            <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="error-text">
+              Valid email is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea
+              id="message"
+              name="message"
+              [(ngModel)]="contactForm.message"
+              required
+              rows="5"
+              placeholder="How can we help you?"
+              #messageInput="ngModel"
+            ></textarea>
+            <div *ngIf="messageInput.invalid && (messageInput.dirty || messageInput.touched)" class="error-text">
+              Message is required
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" [disabled]="contactFormElement.invalid">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

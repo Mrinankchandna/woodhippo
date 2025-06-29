@@ -14,10 +14,7 @@ export class ResizableNavbarComponent {
     { name: 'Home', link: '/' },
     { name: 'About Us', link: '/about-us' },
     { name: 'Services', link: '/services' },
-    { name: 'Sectors', link: '/sectors' },
-    { name: 'Careers', link: '/careers' },
-    { name: 'CSR', link: '/csr' },
-    { name: 'Media', link: '/media' },
+    { name: 'How It Works', link: '/how-it-works' },
     { name: 'Contact Us', link: '/contact-us' }
   ];
   

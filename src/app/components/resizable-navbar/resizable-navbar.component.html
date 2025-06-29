@@ -1,8 +1,14 @@
-<header class="navbar" [class.scrolled]="isScrolled">
+<div class="header-container">
+  <header class="navbar" [class.scrolled]="isScrolled">
+    <!-- Action Buttons (Top Right) -->
+    <div class="action-buttons">
+      <a [routerLink]="'/providers'" class="btn btn-primary">Become a Partner</a>
+      <a [routerLink]="'/business'" class="btn btn-outline">Request Service</a>
+    </div>
   <div class="navbar-content">
       <!-- Logo -->
       <div class="logo">
-        <a [routerLink]="'/'">WoodHippo Services</a>
+        <a [routerLink]="'/'">WOODHIPPO</a>
       </div>
 
       <!-- Desktop Navigation -->
@@ -23,11 +29,6 @@
         </div>
       </nav>
 
-      <div class="nav-buttons">
-        <a [routerLink]="'/contact-us'" class="btn btn-primary">Contact Us</a>
-        <a [routerLink]="'/services'" class="btn btn-outline">Our Services</a>
-      </div>
-
       <!-- Mobile Navigation Toggle -->
       <div class="mobile-toggle" (click)="toggleMobileMenu()">
         <svg *ngIf="!isMobileMenuOpen" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,10 +48,13 @@
         </ng-container>
       </div>
       <div class="mobile-menu-buttons">
-        <a [routerLink]="'/contact-us'" class="btn btn-primary" (click)="closeMobileMenu()">Contact Us</a>
-        <a [routerLink]="'/services'" class="btn btn-outline" (click)="closeMobileMenu()">Our Services</a>
+        <a [routerLink]="'/providers'" class="btn btn-primary" (click)="closeMobileMenu()">Become a Partner</a>
+        <a [routerLink]="'/business'" class="btn btn-outline" (click)="closeMobileMenu()">Request Service</a>
       </div>
     </div>
 </header>
+</div>
 
- 
+<div class="content-wrapper">
+  <router-outlet></router-outlet>
+</div>

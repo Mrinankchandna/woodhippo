@@ -1,0 +1,272 @@
+.providers-page {
+  color: #f0f0f0;
+}
+
+.hero-section {
+  background-color: #1a1a1a;
+  padding: 6rem 0 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  color: #ffd700;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  color: #cccccc;
+  margin-bottom: 2rem;
+}
+
+.benefits-section {
+  margin-bottom: 4rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #ffd700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.benefit-card {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.benefit-icon {
+  color: #ffd700;
+  margin-bottom: 1rem;
+}
+
+.benefit-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #f0f0f0;
+}
+
+.benefit-card p {
+  color: #cccccc;
+}
+
+.how-it-works {
+  margin-bottom: 4rem;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.step-card {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding-left: 4rem;
+}
+
+.step-number {
+  position: absolute;
+  left: 1.5rem;
+  top: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: #ffd700;
+  color: #121212;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.step-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #f0f0f0;
+}
+
+.step-card p {
+  color: #cccccc;
+}
+
+.service-categories {
+  margin-bottom: 4rem;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.category-card {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffd700;
+}
+
+.category-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.category-card li {
+  padding: 0.5rem 0;
+  color: #f0f0f0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.category-card li:before {
+  content: "•";
+  color: #ffd700;
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+.testimonials-section {
+  margin-bottom: 4rem;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quote {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #f0f0f0;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.quote:before {
+  content: '"';
+  font-size: 3rem;
+  color: #ffd700;
+  opacity: 0.3;
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+}
+
+.author-name {
+  font-weight: bold;
+  color: #ffd700;
+  margin-bottom: 0.25rem;
+}
+
+.author-title {
+  color: #cccccc;
+  font-size: 0.9rem;
+}
+
+.cta-section {
+  background-color: #1a1a1a;
+  padding: 3rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.cta-section h2 {
+  font-size: 1.75rem;
+  color: #ffd700;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  margin-bottom: 1.5rem;
+  color: #cccccc;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #ffd700;
+  color: #121212;
+  border: 1px solid #ffd700;
+}
+
+.btn-primary:hover {
+  background-color: #e6c200;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .benefits-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .steps-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .categories-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
