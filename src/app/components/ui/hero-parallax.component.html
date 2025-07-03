@@ -1,0 +1,80 @@
+<div class="hero-parallax-container">
+  <div class="sparkles-container">
+    <div class="sparkle" *ngFor="let i of [].constructor(50); let idx = index" 
+         [style.left.%]="getSparklePosition(idx, 'x')"
+         [style.top.%]="getSparklePosition(idx, 'y')"
+         [style.animation-delay.s]="idx * 0.1"></div>
+  </div>
+  
+  <div class="hero-header">
+    <div class="hero-brand">
+      <div class="brand-slogan">Born to Sustain</div>
+      <h1 class="hero-title">
+        The workforce provider for growing businesses
+      </h1>
+      <div class="mission-statement">
+        Connecting Saharanpur businesses with verified professionals across all industries
+      </div>
+    </div>
+    <div class="hero-preview">
+      <div class="preview-card" [class.active]="activePreview === 'office'" (click)="setActivePreview('office')">
+        <div class="preview-icon">🏢</div>
+        <div class="preview-text">Office Staff Ready</div>
+      </div>
+      <div class="preview-card" [class.active]="activePreview === 'hospital'" (click)="setActivePreview('hospital')">
+        <div class="preview-icon">🏥</div>
+        <div class="preview-text">Healthcare Support</div>
+      </div>
+      <div class="preview-card" [class.active]="activePreview === 'restaurant'" (click)="setActivePreview('restaurant')">
+        <div class="preview-icon">🍽️</div>
+        <div class="preview-text">Restaurant Team</div>
+      </div>
+    </div>
+    <div class="hero-demo">
+      <div class="demo-container">
+        <div class="demo-screen" [class.active]="activePreview === 'office'">
+          <div class="demo-content">
+            <div class="stat-card">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Office Staff Available</div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-screen" [class.active]="activePreview === 'hospital'">
+          <div class="demo-content">
+            <div class="stat-card">
+              <div class="stat-number">30+</div>
+              <div class="stat-label">Healthcare Professionals</div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-screen" [class.active]="activePreview === 'restaurant'">
+          <div class="demo-content">
+            <div class="stat-card">
+              <div class="stat-number">40+</div>
+              <div class="stat-label">Restaurant Staff Ready</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-cta">
+      <a href="/contact-us" class="btn btn-primary btn-large btn-magnetic">Get Started Today</a>
+      <a href="/services" class="btn btn-outline btn-magnetic">View Services</a>
+    </div>
+  </div>
+  
+  <div #parallaxContainer class="floating-elements">
+    <div *ngFor="let product of products.slice(0, 8); let i = index" 
+         class="floating-card" 
+         [style.left.%]="getRandomPosition(i, 'x')"
+         [style.top.%]="getRandomPosition(i, 'y')">
+      <img [src]="product.thumbnail" 
+           [alt]="product.title" 
+           class="floating-image"
+           loading="lazy"
+           (error)="onImageError($event)">
+    </div>
+  </div>
+</div>

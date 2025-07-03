@@ -12,14 +12,14 @@ import { RouterModule } from '@angular/router';
 export class NavbarComponent {
   menuOpen = false;
   navLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'About Us', href: '/about' },
     { label: 'Services', href: '/services' },
-    { label: 'Sectors', href: '/sectors' },
-    { label: 'Investor Relations', href: '/investor-relations' },
-    { label: 'Careers', href: '/careers' },
-    { label: 'Contact Us', href: '/contact' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'About', href: '/about-us' },
+    { label: 'Contact', href: '/contact-us' },
   ];
+  
+  primaryCTA = { label: 'Get Started', href: '/contact-us' };
+  secondaryCTA = { label: 'Call Now', href: 'tel:9411080804' };
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;

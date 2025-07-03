@@ -1,0 +1,27 @@
+<div class="testimonials-section">
+  <div class="container">
+    <h2 class="testimonials-title">Client Testimonials</h2>
+    <p class="testimonials-subtitle">What our partners say about WoodHippo services</p>
+    
+    <div class="testimonials-container">
+      <div class="testimonial-card" *ngFor="let testimonial of testimonials; let i = index" 
+           [class.active]="i === currentIndex">
+        <div class="testimonial-content">
+          <img [src]="testimonial.src" [alt]="testimonial.name" class="author-image">
+          <div class="quote">"{{ testimonial.quote }}"</div>
+          <div class="author">
+            <div class="author-name">{{ testimonial.name }}</div>
+            <div class="author-designation">{{ testimonial.designation }}</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-dots">
+        <button *ngFor="let testimonial of testimonials; let i = index" 
+                [class.active]="i === currentIndex"
+                (click)="setCurrentIndex(i)"
+                class="dot"></button>
+      </div>
+    </div>
+  </div>
+</div>

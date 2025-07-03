@@ -311,6 +311,13 @@
   margin-bottom: 1rem;
 }
 
+.footer-logo-img {
+  height: 40px;
+  width: auto;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+
 .footer-logo h3 {
   font-size: 1.25rem;
   color: #ffd700;
@@ -357,6 +364,37 @@
   color: #aaa;
   font-size: 0.875rem;
   line-height: 1.4;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.contact-icon {
+  font-size: 1.1rem;
+  margin-top: 0.1rem;
+}
+
+.contact-item a {
+  color: #ffd700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #ffed4e;
+}
+
+.cta-footer {
+  margin-top: 1.5rem;
+}
+
+.btn-small {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9rem;
 }
 
 .footer-bottom {

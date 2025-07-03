@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -89,6 +89,14 @@ interface ServiceItem {
       transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    
+    .service-card.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .service-card:hover {
@@ -207,6 +215,25 @@ interface ServiceItem {
     }
   `]
 })
-export class ServicesCarouselComponent {
+export class ServicesCarouselComponent implements OnInit {
   @Input() services: ServiceItem[] = [];
+
+  ngOnInit() {
+    this.observeElements();
+  }
+
+  private observeElements() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    setTimeout(() => {
+      const cards = document.querySelectorAll('.service-card');
+      cards.forEach(card => observer.observe(card));
+    }, 100);
+  }
 }

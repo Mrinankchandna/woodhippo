@@ -1,10 +1,6 @@
 <div class="header-container">
   <header class="navbar" [class.scrolled]="isScrolled">
-    <!-- Action Buttons (Top Right) -->
-    <div class="action-buttons">
-      <a [routerLink]="'/providers'" class="btn btn-primary">Become a Partner</a>
-      <a [routerLink]="'/business'" class="btn btn-outline">Request Service</a>
-    </div>
+
   <div class="navbar-content">
       <!-- Logo -->
       <div class="logo">
@@ -47,10 +43,7 @@
           <a [routerLink]="item.link" (click)="closeMobileMenu()">{{ item.name }}</a>
         </ng-container>
       </div>
-      <div class="mobile-menu-buttons">
-        <a [routerLink]="'/providers'" class="btn btn-primary" (click)="closeMobileMenu()">Become a Partner</a>
-        <a [routerLink]="'/business'" class="btn btn-outline" (click)="closeMobileMenu()">Request Service</a>
-      </div>
+
     </div>
 </header>
 </div>

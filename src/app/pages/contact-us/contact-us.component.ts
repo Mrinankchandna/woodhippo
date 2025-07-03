@@ -20,14 +20,28 @@ export class ContactUsComponent {
   formError = false;
   
   submitForm() {
-    if (!this.contactForm.name || !this.contactForm.email || !this.contactForm.message) {
+    // Reset error state
+    this.formError = false;
+    
+    // Trim whitespace and validate
+    const name = this.contactForm.name.trim();
+    const email = this.contactForm.email.trim();
+    const message = this.contactForm.message.trim();
+    
+    if (!name || !email || !message) {
+      this.formError = true;
+      return;
+    }
+    
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
       this.formError = true;
       return;
     }
     
     this.formSubmitted = true;
-    this.formError = false;
     // In a real app, you would send the form data to a backend service here
-    console.log('Form submitted:', this.contactForm);
+    console.log('Form submitted:', { name, email, message });
   }
 }

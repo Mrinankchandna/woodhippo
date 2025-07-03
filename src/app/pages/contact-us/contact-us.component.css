@@ -1,7 +1,38 @@
 .contact-page {
-  padding: 4rem 0;
   background-color: #121212;
-  min-height: 80vh;
+  min-height: 100vh;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #0a0a0a 0%, #121212 50%, #1a1a1a 100%);
+  padding: 8rem 0 4rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  color: #ffd700;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  color: #cccccc;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: #ffd700;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
 }
 
 .page-title {
@@ -48,10 +79,27 @@
 }
 
 .contact-form {
-  background-color: #1a1a1a;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+  padding: 3rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-header h2 {
+  color: #ffd700;
+  margin-bottom: 0.5rem;
+}
+
+.form-header p {
+  color: #cccccc;
+  font-size: 0.9rem;
 }
 
 .contact-form h2 {

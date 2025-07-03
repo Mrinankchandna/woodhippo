@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, ViewChild, AfterViewInit, HostListener, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, ElementRef, ViewChild, AfterViewInit, HostListener, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -16,7 +16,7 @@ export interface ServiceCard {
   templateUrl: './apple-cards-carousel.component.html',
   styleUrls: ['./apple-cards-carousel.component.css']
 })
-export class AppleCardsCarouselComponent implements AfterViewInit, OnChanges {
+export class AppleCardsCarouselComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() services: ServiceCard[] = [];
   @ViewChild('carouselContainer') carouselContainer!: ElementRef;
   
@@ -24,9 +24,9 @@ export class AppleCardsCarouselComponent implements AfterViewInit, OnChanges {
   isDragging = false;
   startX = 0;
   scrollLeft = 0;
+  private eventListeners: (() => void)[] = [];
   
   ngAfterViewInit() {
-    console.log('Services in carousel:', this.services);
     setTimeout(() => {
       if (this.carouselContainer) {
         this.initCarousel();
@@ -35,7 +35,6 @@ export class AppleCardsCarouselComponent implements AfterViewInit, OnChanges {
   }
   
   ngOnChanges(changes: SimpleChanges) {
-    console.log('Services changed:', this.services);
     if (changes['services'] && this.carouselContainer) {
       setTimeout(() => this.initCarousel(), 0);
     }
@@ -44,24 +43,59 @@ export class AppleCardsCarouselComponent implements AfterViewInit, OnChanges {
   initCarousel() {
     if (!this.carouselContainer || !this.carouselContainer.nativeElement) return;
     
+    // Clean up existing listeners
+    this.cleanupEventListeners();
+    
     const container = this.carouselContainer.nativeElement;
-    container.addEventListener('mousedown', (e: MouseEvent) => this.startDragging(e));
-    container.addEventListener('mousemove', (e: MouseEvent) => this.drag(e));
-    container.addEventListener('mouseup', () => this.stopDragging());
-    container.addEventListener('mouseleave', () => this.stopDragging());
+    const mouseDownHandler = (e: MouseEvent) => this.startDragging(e);
+    const mouseMoveHandler = (e: MouseEvent) => this.drag(e);
+    const mouseUpHandler = () => this.stopDragging();
+    const mouseLeaveHandler = () => this.stopDragging();
+    
+    container.addEventListener('mousedown', mouseDownHandler);
+    container.addEventListener('mousemove', mouseMoveHandler);
+    container.addEventListener('mouseup', mouseUpHandler);
+    container.addEventListener('mouseleave', mouseLeaveHandler);
+    
+    // Store cleanup functions
+    this.eventListeners.push(
+      () => container.removeEventListener('mousedown', mouseDownHandler),
+      () => container.removeEventListener('mousemove', mouseMoveHandler),
+      () => container.removeEventListener('mouseup', mouseUpHandler),
+      () => container.removeEventListener('mouseleave', mouseLeaveHandler)
+    );
     
     // Add touch support
-    container.addEventListener('touchstart', (e: TouchEvent) => {
+    const touchStartHandler = (e: TouchEvent) => {
       const touch = e.touches[0];
       this.startDragging({ pageX: touch.pageX } as MouseEvent);
-    });
+    };
     
-    container.addEventListener('touchmove', (e: TouchEvent) => {
+    const touchMoveHandler = (e: TouchEvent) => {
       const touch = e.touches[0];
       this.drag({ pageX: touch.pageX, preventDefault: () => e.preventDefault() } as any);
-    });
+    };
     
-    container.addEventListener('touchend', () => this.stopDragging());
+    const touchEndHandler = () => this.stopDragging();
+    
+    container.addEventListener('touchstart', touchStartHandler);
+    container.addEventListener('touchmove', touchMoveHandler);
+    container.addEventListener('touchend', touchEndHandler);
+    
+    this.eventListeners.push(
+      () => container.removeEventListener('touchstart', touchStartHandler),
+      () => container.removeEventListener('touchmove', touchMoveHandler),
+      () => container.removeEventListener('touchend', touchEndHandler)
+    );
+  }
+  
+  private cleanupEventListeners() {
+    this.eventListeners.forEach(cleanup => cleanup());
+    this.eventListeners = [];
+  }
+  
+  ngOnDestroy() {
+    this.cleanupEventListeners();
   }
   
   startDragging(e: MouseEvent) {

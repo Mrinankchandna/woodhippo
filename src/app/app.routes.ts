@@ -74,6 +74,16 @@ export const routes: Routes = [
     ]
   },
   {
+    path: 'pricing',
+    component: ResizableNavbarComponent,
+    children: [
+      {
+        path: '',
+        loadComponent: () => import('./pages/pricing/pricing.component').then(m => m.PricingComponent)
+      }
+    ]
+  },
+  {
     path: '**',
     redirectTo: ''
   }
