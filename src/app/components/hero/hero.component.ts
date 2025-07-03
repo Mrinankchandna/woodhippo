@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HeroParallaxComponent } from '../ui/hero-parallax.component';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule, RouterLink, HeroParallaxComponent],
+  imports: [CommonModule, HeroParallaxComponent],
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.css']
 })

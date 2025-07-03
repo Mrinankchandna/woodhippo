@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroComponent } from '../../components/hero/hero.component';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HeroComponent } from '../../components/hero/hero.component';
 import { ServicesCarouselComponent } from '../../components/services-carousel/services-carousel.component';
 import { GalleryComponent } from '../../components/gallery/gallery.component';
 
@@ -10,8 +10,8 @@ import { GalleryComponent } from '../../components/gallery/gallery.component';
   standalone: true,
   imports: [
     CommonModule,
-    HeroComponent,
     RouterLink,
+    HeroComponent,
     ServicesCarouselComponent,
     GalleryComponent
   ],
