@@ -1,11 +1,11 @@
 <div class="hero-parallax-container">
   <div class="sparkles-container">
-    <div class="sparkle" *ngFor="let i of [].constructor(50); let idx = index" 
+    <div class="sparkle" *ngFor="let i of [].constructor(50); let idx = index"
          [style.left.%]="getSparklePosition(idx, 'x')"
          [style.top.%]="getSparklePosition(idx, 'y')"
          [style.animation-delay.s]="idx * 0.1"></div>
   </div>
-  
+
   <div class="hero-header">
     <div class="hero-brand">
       <div class="brand-slogan">Born to Sustain</div>
@@ -58,23 +58,10 @@
         </div>
       </div>
     </div>
-    
+
     <div class="hero-cta">
       <a href="/contact-us" class="btn btn-primary btn-large btn-magnetic">Get Started Today</a>
       <a href="/services" class="btn btn-outline btn-magnetic">View Services</a>
-    </div>
-  </div>
-  
-  <div #parallaxContainer class="floating-elements">
-    <div *ngFor="let product of products.slice(0, 8); let i = index" 
-         class="floating-card" 
-         [style.left.%]="getRandomPosition(i, 'x')"
-         [style.top.%]="getRandomPosition(i, 'y')">
-      <img [src]="product.thumbnail" 
-           [alt]="product.title" 
-           class="floating-image"
-           loading="lazy"
-           (error)="onImageError($event)">
     </div>
   </div>
 </div>
