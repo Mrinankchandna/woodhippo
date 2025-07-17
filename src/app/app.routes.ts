@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
 import { ResizableNavbarComponent } from './components/resizable-navbar/resizable-navbar.component';
 
 export const routes: Routes = [
@@ -9,7 +8,8 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent
+        redirectTo: 'about-us',
+        pathMatch: 'full'
       }
     ]
   },
