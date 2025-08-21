@@ -43,16 +43,7 @@ export const routes: Routes = [
       }
     ]
   },
-  {
-    path: 'providers',
-    component: ResizableNavbarComponent,
-    children: [
-      {
-        path: '',
-        loadComponent: () => import('./pages/providers/providers.component').then(m => m.ProvidersComponent)
-      }
-    ]
-  },
+  
   {
     path: 'how-it-works',
     component: ResizableNavbarComponent,
@@ -73,16 +64,7 @@ export const routes: Routes = [
       }
     ]
   },
-  {
-    path: 'pricing',
-    component: ResizableNavbarComponent,
-    children: [
-      {
-        path: '',
-        loadComponent: () => import('./pages/pricing/pricing.component').then(m => m.PricingComponent)
-      }
-    ]
-  },
+
   {
     path: '**',
     redirectTo: ''
