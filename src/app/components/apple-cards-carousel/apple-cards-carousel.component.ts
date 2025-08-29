@@ -21,9 +21,10 @@ export class AppleCardsCarouselComponent implements AfterViewInit, OnChanges, On
   @ViewChild('carouselContainer') carouselContainer!: ElementRef;
   
   activeCardIndex: number = 0;
-  isDragging = false;
-  startX = 0;
-  scrollLeft = 0;
+  isDragging: boolean = false;
+  startX: number = 0;
+  scrollLeft: number = 0;
+  private readonly GAP = 20;
   private eventListeners: (() => void)[] = [];
   
   ngAfterViewInit() {
@@ -68,12 +69,12 @@ export class AppleCardsCarouselComponent implements AfterViewInit, OnChanges, On
     // Add touch support
     const touchStartHandler = (e: TouchEvent) => {
       const touch = e.touches[0];
-      this.startDragging({ pageX: touch.pageX } as MouseEvent);
+      this.startDragging({ pageX: touch.pageX });
     };
     
     const touchMoveHandler = (e: TouchEvent) => {
       const touch = e.touches[0];
-      this.drag({ pageX: touch.pageX, preventDefault: () => e.preventDefault() } as any);
+      this.drag({ pageX: touch.pageX, preventDefault: () => e.preventDefault() });
     };
     
     const touchEndHandler = () => this.stopDragging();
@@ -98,15 +99,16 @@ export class AppleCardsCarouselComponent implements AfterViewInit, OnChanges, On
     this.cleanupEventListeners();
   }
   
-  startDragging(e: MouseEvent) {
+  startDragging(e: MouseEvent | { pageX: number }) {
+    if (!this.carouselContainer?.nativeElement) return;
     this.isDragging = true;
     this.startX = e.pageX - this.carouselContainer.nativeElement.offsetLeft;
     this.scrollLeft = this.carouselContainer.nativeElement.scrollLeft;
   }
   
-  drag(e: MouseEvent) {
-    if (!this.isDragging) return;
-    e.preventDefault();
+  drag(e: MouseEvent | { pageX: number; preventDefault?: () => void }) {
+    if (!this.isDragging || !this.carouselContainer?.nativeElement) return;
+    e.preventDefault?.();
     const x = e.pageX - this.carouselContainer.nativeElement.offsetLeft;
     const walk = (x - this.startX) * 2;
     this.carouselContainer.nativeElement.scrollLeft = this.scrollLeft - walk;
@@ -124,8 +126,7 @@ export class AppleCardsCarouselComponent implements AfterViewInit, OnChanges, On
     if (cards.length === 0) return;
     
     const cardWidth = cards[0].offsetWidth;
-    const gap = 20; // Same as the gap in CSS
-    this.carouselContainer.nativeElement.scrollLeft = index * (cardWidth + gap);
+    this.carouselContainer.nativeElement.scrollLeft = index * (cardWidth + this.GAP);
   }
   
   @HostListener('window:resize')

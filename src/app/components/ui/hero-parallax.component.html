@@ -1,67 +1,63 @@
 <div class="hero-parallax-container">
-  <div class="sparkles-container">
-    <div class="sparkle" *ngFor="let i of [].constructor(50); let idx = index"
-         [style.left.%]="getSparklePosition(idx, 'x')"
-         [style.top.%]="getSparklePosition(idx, 'y')"
-         [style.animation-delay.s]="idx * 0.1"></div>
+  <div class="grid-background"></div>
+  <div class="floating-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
   </div>
 
-  <div class="hero-header">
-    <div class="hero-brand">
-      <div class="brand-slogan">Born to Sustain</div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Available 24/7 • Saharanpur
+    </div>
+
+    <div class="hero-main">
       <h1 class="hero-title">
-        The workforce provider for growing businesses
+        <span class="title-line">Industrial Labour</span>
+        <span class="title-line gradient-text">Workforce Solutions</span>
       </h1>
-      <div class="mission-statement">
-        Connecting Saharanpur businesses with verified professionals across all industries
-      </div>
-    </div>
-    <div class="hero-preview">
-      <div class="preview-card" [class.active]="activePreview === 'office'" (click)="setActivePreview('office')">
-        <div class="preview-icon">🏢</div>
-        <div class="preview-text">Office Staff Ready</div>
-      </div>
-      <div class="preview-card" [class.active]="activePreview === 'hospital'" (click)="setActivePreview('hospital')">
-        <div class="preview-icon">🏥</div>
-        <div class="preview-text">Healthcare Support</div>
-      </div>
-      <div class="preview-card" [class.active]="activePreview === 'restaurant'" (click)="setActivePreview('restaurant')">
-        <div class="preview-icon">🍽️</div>
-        <div class="preview-text">Restaurant Team</div>
-      </div>
-    </div>
-    <div class="hero-demo">
-      <div class="demo-container">
-        <div class="demo-screen" [class.active]="activePreview === 'office'">
-          <div class="demo-content">
-            <div class="stat-card">
-              <div class="stat-number">50+</div>
-              <div class="stat-label">Office Staff Available</div>
-            </div>
-          </div>
-        </div>
-        <div class="demo-screen" [class.active]="activePreview === 'hospital'">
-          <div class="demo-content">
-            <div class="stat-card">
-              <div class="stat-number">30+</div>
-              <div class="stat-label">Healthcare Professionals</div>
-            </div>
-          </div>
-        </div>
-        <div class="demo-screen" [class.active]="activePreview === 'restaurant'">
-          <div class="demo-content">
-            <div class="stat-card">
-              <div class="stat-number">40+</div>
-              <div class="stat-label">Restaurant Staff Ready</div>
-            </div>
-          </div>
-        </div>
+
+      <p class="hero-subtitle">
+        Premium staffing services for modern businesses.
+        <span class="highlight">Trusted by companies</span> across industries.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn-primary">
+          <span>Get Started</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </button>
+        <button class="btn-secondary">
+          <span>View Services</span>
+        </button>
       </div>
     </div>
 
-    <div class="hero-cta">
-      <a href="/contact-us" class="btn btn-primary btn-large btn-magnetic">Get Started Today</a>
-      <a href="/services" class="btn btn-outline btn-magnetic">View Services</a>
+    <div class="hero-features">
+      <div class="feature-card">
+        <div class="feature-icon">🏭</div>
+        <div class="feature-content">
+          <div class="feature-title">Industrial Expertise</div>
+          <div class="feature-desc">Specialized workforce for manufacturing and industrial operations</div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-content">
+          <div class="feature-title">Rapid Deployment</div>
+          <div class="feature-desc">Quick staffing solutions with verified professionals</div>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🛡️</div>
+        <div class="feature-content">
+          <div class="feature-title">Quality Assured</div>
+          <div class="feature-desc">Comprehensive background checks and skill verification</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

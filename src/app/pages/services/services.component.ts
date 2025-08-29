@@ -44,8 +44,4 @@ export class ServicesComponent {
   setActiveCategory(category: string) {
     this.activeCategory = category;
   }
-
-  onSearch() {
-    // Search is reactive through filteredServices getter
-  }
 }

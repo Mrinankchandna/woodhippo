@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -215,10 +215,14 @@ interface ServiceItem {
     }
   `]
 })
-export class ServicesCarouselComponent implements OnInit {
+export class ServicesCarouselComponent implements OnInit, AfterViewInit {
   @Input() services: ServiceItem[] = [];
 
-  ngOnInit() {
+  constructor(private elementRef: ElementRef) {}
+
+  ngOnInit() {}
+
+  ngAfterViewInit() {
     this.observeElements();
   }
 
@@ -231,9 +235,7 @@ export class ServicesCarouselComponent implements OnInit {
       });
     }, { threshold: 0.1 });
 
-    setTimeout(() => {
-      const cards = document.querySelectorAll('.service-card');
-      cards.forEach(card => observer.observe(card));
-    }, 100);
+    const cards = this.elementRef.nativeElement.querySelectorAll('.service-card');
+    cards.forEach((card: Element) => observer.observe(card));
   }
 }

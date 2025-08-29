@@ -72,6 +72,7 @@ export class SparklesComponent implements OnInit, OnDestroy {
 
   private createParticles() {
     const canvas = this.canvas.nativeElement;
+    this.particles = [];
     const numParticles = Math.max(50, Math.floor((canvas.width * canvas.height) / 8000 * this.particleDensity));
     
     for (let i = 0; i < numParticles; i++) {
@@ -80,10 +81,14 @@ export class SparklesComponent implements OnInit, OnDestroy {
   }
 
   private animate() {
-    this.ctx.clearRect(0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
+    const canvas = this.canvas.nativeElement;
+    const width = canvas.width;
+    const height = canvas.height;
+    
+    this.ctx.clearRect(0, 0, width, height);
     
     this.particles.forEach(particle => {
-      particle.update();
+      particle.update(width, height);
       particle.draw(this.ctx, this.particleColor);
     });
     
@@ -110,7 +115,7 @@ class Particle {
     this.fadeDirection = Math.random() > 0.5 ? 1 : -1;
   }
 
-  update() {
+  update(canvasWidth: number, canvasHeight: number) {
     this.x += this.speedX;
     this.y += this.speedY;
     this.opacity += this.fadeDirection * 0.01;
@@ -118,6 +123,11 @@ class Particle {
     if (this.opacity <= 0 || this.opacity >= 1) {
       this.fadeDirection *= -1;
     }
+    
+    if (this.x < 0) this.x = canvasWidth;
+    if (this.x > canvasWidth) this.x = 0;
+    if (this.y < 0) this.y = canvasHeight;
+    if (this.y > canvasHeight) this.y = 0;
   }
 
   draw(ctx: CanvasRenderingContext2D, color: string) {

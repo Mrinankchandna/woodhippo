@@ -10,5 +10,5 @@ import { FooterComponent } from './footer/footer.component';
   styleUrl: './app.css'
 })
 export class AppComponent {
-  protected title = 'WoodHippo Services';
+  title = 'WoodHippo Services';
 }

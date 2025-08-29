@@ -22,9 +22,15 @@ export class ResizableNavbarComponent {
   isMobileMenuOpen = false;
   hoveredItem: number | null = null;
   
+  private scrollTimeout?: number;
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.isScrolled = window.scrollY > 20;
+    if (this.scrollTimeout) return;
+    this.scrollTimeout = window.setTimeout(() => {
+      this.isScrolled = window.scrollY > 20;
+      this.scrollTimeout = undefined;
+    }, 16);
   }
   
   toggleMobileMenu() {

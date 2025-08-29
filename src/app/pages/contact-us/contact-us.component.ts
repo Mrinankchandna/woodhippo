@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './contact-us.component.html',
-  styleUrls: ['./contact-us.component.css']
+  styleUrl: './contact-us.component.css'
 })
 export class ContactUsComponent {
   contactForm = {
@@ -18,6 +18,7 @@ export class ContactUsComponent {
   
   formSubmitted = false;
   formError = false;
+  errorMessage = '';
   
   submitForm() {
     // Reset error state
@@ -30,6 +31,7 @@ export class ContactUsComponent {
     
     if (!name || !email || !message) {
       this.formError = true;
+      this.errorMessage = 'All fields are required.';
       return;
     }
     
@@ -37,11 +39,11 @@ export class ContactUsComponent {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       this.formError = true;
+      this.errorMessage = 'Please enter a valid email address.';
       return;
     }
     
     this.formSubmitted = true;
     // In a real app, you would send the form data to a backend service here
-    console.log('Form submitted:', { name, email, message });
   }
 }

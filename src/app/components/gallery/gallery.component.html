@@ -1,27 +1,34 @@
-<div class="testimonials-section">
-  <div class="container">
-    <h2 class="testimonials-title">Client Testimonials</h2>
-    <p class="testimonials-subtitle">What our partners say about WoodHippo services</p>
-    
-    <div class="testimonials-container">
-      <div class="testimonial-card" *ngFor="let testimonial of testimonials; let i = index" 
-           [class.active]="i === currentIndex">
-        <div class="testimonial-content">
-          <img [src]="testimonial.src" [alt]="testimonial.name" class="author-image">
-          <div class="quote">"{{ testimonial.quote }}"</div>
-          <div class="author">
-            <div class="author-name">{{ testimonial.name }}</div>
-            <div class="author-designation">{{ testimonial.designation }}</div>
-          </div>
+<div class="carousel-wrapper">
+  <ul class="slides-container"
+      [style.transform]="'translateX(-' + (current * (100 / slides.length)) + '%)'">
+    <li *ngFor="let slide of slides; let i = index"
+        class="slide-item"
+        [class.active]="current === i"
+        (click)="handleSlideClick(i)"
+        (mousemove)="onMouseMove($event, slideElement)"
+        (mouseleave)="onMouseLeave(slideElement)"
+        #slideElement>
+      <div class="slide-wrapper" [class.active]="current === i">
+        <div class="slide-content">
+          <img [src]="slide.src" [alt]="slide.title" class="slide-image">
+          <div class="slide-overlay" *ngIf="current === i"></div>
         </div>
+        <article class="slide-text" [class.visible]="current === i">
+          <h2>{{ slide.title }}</h2>
+          <div class="button-wrapper">
+            <button class="slide-button">{{ slide.button }}</button>
+          </div>
+        </article>
       </div>
-      
-      <div class="testimonial-dots">
-        <button *ngFor="let testimonial of testimonials; let i = index" 
-                [class.active]="i === currentIndex"
-                (click)="setCurrentIndex(i)"
-                class="dot"></button>
-      </div>
-    </div>
+    </li>
+  </ul>
+
+  <div class="carousel-controls">
+    <button class="control-btn prev" (click)="handlePreviousClick()" title="Previous">
+      <span class="arrow">→</span>
+    </button>
+    <button class="control-btn next" (click)="handleNextClick()" title="Next">
+      <span class="arrow">→</span>
+    </button>
   </div>
 </div>
